@@ -9,17 +9,8 @@ import {
 class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>;
 
-  private static INSTANCE: CategoriesRepository;
-
-  private constructor() {
-    this.repository = getRepository(Category);
-  }
-
-  public static getInstance(): CategoriesRepository {
-    if (!this.INSTANCE) {
-      this.INSTANCE = new CategoriesRepository();
-    }
-    return this.INSTANCE;
+  constructor() {
+    this.repository = getRepository(Category, 'default');
   }
 
   async create({ description, name }: ICreateCategoryDTO): Promise<void> {
