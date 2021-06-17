@@ -1,3 +1,5 @@
+import { inject, injectable } from 'tsyringe';
+
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
 
 interface IRequest {
@@ -5,17 +7,23 @@ interface IRequest {
   description: string;
 }
 
+@injectable()
 class CreateCategoryUseCase {
-  constructor(private categoriesRepository: ICategoriesRepository) {}
+  constructor(
+    @inject('CategoriesRepository')
+    private categoriesRepository: ICategoriesRepository
+  ) {}
 
-  execute({ description, name }: IRequest): void {
-    const categoryAlreadyExits = this.categoriesRepository.findByName(name);
+  async execute({ description, name }: IRequest): Promise<void> {
+    const categoryAlreadyExits = await this.categoriesRepository.findByName(
+      name
+    );
 
     if (categoryAlreadyExits) {
       throw new Error('Category already exits');
     }
 
-    this.categoriesRepository.create({
+    await this.categoriesRepository.create({
       description,
       name,
     });
