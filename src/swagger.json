@@ -51,6 +51,8 @@
         "description": "List all categories",
         "responses": {
           "200": {
+        "summary": "List all categories",
+        "description": "List all categories",
             "description": "Success",
             "content": {
               "application/json": {
