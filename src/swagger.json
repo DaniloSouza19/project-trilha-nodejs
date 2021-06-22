@@ -45,8 +45,10 @@
           }
         }
       },
-      "get" : {
-        "tags": ["Category"],
+      "get": {
+        "tags": [
+          "Category"
+        ],
         "summary": "List all categories",
         "description": "List all categories",
         "responses": {
