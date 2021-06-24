@@ -1,14 +1,14 @@
 import { getRepository, Repository } from 'typeorm';
 
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
-import { Users } from '../../entities/Users';
+import { User } from '../../entities/User';
 import { IUsersRepository } from '../IUsersRepository';
 
 class UsersRepository implements IUsersRepository {
-  private repository: Repository<Users>;
+  private repository: Repository<User>;
 
   constructor() {
-    this.repository = getRepository(Users);
+    this.repository = getRepository(User);
   }
 
   async create({
