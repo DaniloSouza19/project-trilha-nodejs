@@ -40,5 +40,6 @@
     "tsyringe": "^4.5.0",
     "typeorm": "^0.2.34",
     "uuid": "^8.3.2"
-  }
+  },
+  "license": "MIT"
 }
