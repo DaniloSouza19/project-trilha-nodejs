@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "typeorm": "ts-node-dev node_modules/typeorm/cli"
+    "typeorm": "ts-node-dev node_modules/typeorm/cli",
+    "test": "jest"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
