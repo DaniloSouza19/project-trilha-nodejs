@@ -3,12 +3,12 @@
 ## Cadastro de carro
 
 **RF**
-- [] Deve ser possível cadastrar um carro.
+- [x] Deve ser possível cadastrar um carro.
 
 **RN**
-- [] Não deve ser possível cadastrar um carro com uma placa já existente.
-- [] O Carro deve ser cadastrado inicialmente com disponibilidade.
-- [] Para cadastrar o carro, o usuário deve ser um administrador.
+- [x] Não deve ser possível cadastrar um carro com uma placa já existente.
+- [x] O Carro deve ser cadastrado inicialmente com disponibilidade.
+- * [] Para cadastrar o carro, o usuário deve ser um administrador.
 
 ## Listagem de carros
 
