@@ -15,7 +15,7 @@ class CarsRepository implements ICarsRepository {
     description,
     licence_plate,
     name,
-  }: ICreateCarDTO): Promise<void> {
+  }: ICreateCarDTO): Promise<Car> {
     const car = this.repository.create({
       brand,
       category_id,
@@ -26,6 +26,12 @@ class CarsRepository implements ICarsRepository {
     });
 
     await this.repository.save(car);
+
+    return car;
+  }
+
+  findCarByLicencePlate(licence_plate: string): Promise<Car> {
+    throw new Error('Method not implemented.');
   }
 }
 
