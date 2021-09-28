@@ -9,6 +9,7 @@ interface IRequest {
   description: string;
   daily_rate: number;
   licence_plate: string;
+  fine_amount: number;
   brand: string;
   category_id: string;
 }
@@ -26,6 +27,7 @@ class CreateCarUseCase {
     daily_rate,
     description,
     licence_plate,
+    fine_amount,
     name,
   }: IRequest): Promise<Car> {
     const licencePlateAlreadyExists =
@@ -41,6 +43,7 @@ class CreateCarUseCase {
       daily_rate,
       description,
       licence_plate,
+      fine_amount,
       name,
     });
 

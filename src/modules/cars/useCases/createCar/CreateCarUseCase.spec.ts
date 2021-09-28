@@ -20,13 +20,14 @@ describe('Create car', () => {
       daily_rate: 100,
       description: 'Description car',
       licence_plate: 'ABC7788',
+      fine_amount: 60,
     });
 
     expect(car).toHaveProperty('id');
   });
 
   it('Should not be able to create a car with an already existing license plate', async () => {
-    expect(async () => {
+    await expect(async () => {
       await createCarUseCase.execute({
         name: 'Car 1',
         brand: 'Car brand',
@@ -34,6 +35,7 @@ describe('Create car', () => {
         daily_rate: 100,
         description: 'Description car',
         licence_plate: 'ABC7788',
+        fine_amount: 60,
       });
 
       await createCarUseCase.execute({
@@ -43,6 +45,7 @@ describe('Create car', () => {
         daily_rate: 100,
         description: 'Car 2 Description',
         licence_plate: 'ABC7788',
+        fine_amount: 60,
       });
     }).rejects.toBeInstanceOf(AppError);
   });
@@ -55,6 +58,7 @@ describe('Create car', () => {
       daily_rate: 100,
       description: 'Description car',
       licence_plate: 'ABC7788',
+      fine_amount: 60,
     });
 
     expect(car.available).toBe(true);
