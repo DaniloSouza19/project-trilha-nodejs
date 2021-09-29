@@ -1,4 +1,11 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryColumn,
+} from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Category } from './Category';
@@ -33,7 +40,7 @@ class Car {
   @Column()
   category_id: string;
 
-  @Column()
+  @CreateDateColumn()
   created_at: Date;
 
   constructor() {
