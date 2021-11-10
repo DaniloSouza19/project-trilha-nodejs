@@ -19,7 +19,7 @@ describe('Create car', () => {
       category_id: '445454',
       daily_rate: 100,
       description: 'Description car',
-      licence_plate: 'ABC7788',
+      license_plate: 'ABC7788',
       fine_amount: 60,
     });
 
@@ -34,7 +34,7 @@ describe('Create car', () => {
         category_id: '445454',
         daily_rate: 100,
         description: 'Description car',
-        licence_plate: 'ABC7788',
+        license_plate: 'ABC7788',
         fine_amount: 60,
       });
 
@@ -44,7 +44,7 @@ describe('Create car', () => {
         category_id: '445454',
         daily_rate: 100,
         description: 'Car 2 Description',
-        licence_plate: 'ABC7788',
+        license_plate: 'ABC7788',
         fine_amount: 60,
       });
     }).rejects.toBeInstanceOf(AppError);
@@ -57,7 +57,7 @@ describe('Create car', () => {
       category_id: '445454',
       daily_rate: 100,
       description: 'Description car',
-      licence_plate: 'ABC7788',
+      license_plate: 'ABC7788',
       fine_amount: 60,
     });
 

@@ -28,7 +28,7 @@ class Car {
   available: boolean;
 
   @Column()
-  licence_plate: string;
+  license_plate: string;
 
   @Column()
   brand: string;

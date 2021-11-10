@@ -8,7 +8,7 @@ interface IRequest {
   name: string;
   description: string;
   daily_rate: number;
-  licence_plate: string;
+  license_plate: string;
   fine_amount: number;
   brand: string;
   category_id: string;
@@ -26,15 +26,15 @@ class CreateCarUseCase {
     category_id,
     daily_rate,
     description,
-    licence_plate,
+    license_plate,
     fine_amount,
     name,
   }: IRequest): Promise<Car> {
-    const licencePlateAlreadyExists =
-      await this.carsRepository.findCarByLicencePlate(licence_plate);
+    const licensePlateAlreadyExists =
+      await this.carsRepository.findCarByLicensePlate(license_plate);
 
-    if (licencePlateAlreadyExists) {
-      throw new AppError('Licence plate already exists');
+    if (licensePlateAlreadyExists) {
+      throw new AppError('License plate already exists');
     }
 
     const car = await this.carsRepository.create({
@@ -42,7 +42,7 @@ class CreateCarUseCase {
       category_id,
       daily_rate,
       description,
-      licence_plate,
+      license_plate,
       fine_amount,
       name,
     });
