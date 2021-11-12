@@ -5,14 +5,16 @@ import swaggerUi from 'swagger-ui-express';
 
 import '@shared/container';
 import { AppError } from '@shared/errors/AppError';
+import createConnection from '@shared/infra/typeorm/';
 
 import swaggerDocument from '../../../swagger.json';
 import { router } from './routes';
-import '@shared/infra/typeorm';
 
 const app = express();
 
 app.use(express.json());
+
+createConnection();
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
