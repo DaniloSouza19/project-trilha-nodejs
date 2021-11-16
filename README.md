@@ -8,7 +8,7 @@
 **RN**
 - [x] Não deve ser possível cadastrar um carro com uma placa já existente.
 - [x] O Carro deve ser cadastrado inicialmente com disponibilidade.
-- * [] Para cadastrar o carro, o usuário deve ser um administrador.
+- [x] Para cadastrar o carro, o usuário deve ser um administrador.
 
 ## Listagem de carros
 
