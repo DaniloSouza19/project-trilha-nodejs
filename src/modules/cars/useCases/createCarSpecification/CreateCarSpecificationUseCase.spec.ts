@@ -1,16 +1,20 @@
 import { CarsRepositoryInMemory } from '@modules/cars/repositories/in-memory/CarsRepositoryInMemory';
+import { SpecificationsRepositoryInMemory } from '@modules/cars/repositories/in-memory/SpecificationsRepositoryInMemory';
 import { AppError } from '@shared/errors/AppError';
 
 import { CreateCarSpecificationUseCase } from './CreateCarSpecificationUseCase';
 
 let createCarSpecificationUseCase: CreateCarSpecificationUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;
+let specificationsRepositoryInMemory: SpecificationsRepositoryInMemory;
 
 describe('Add car specification', () => {
   beforeEach(() => {
     carsRepositoryInMemory = new CarsRepositoryInMemory();
+    specificationsRepositoryInMemory = new SpecificationsRepositoryInMemory();
     createCarSpecificationUseCase = new CreateCarSpecificationUseCase(
-      carsRepositoryInMemory
+      carsRepositoryInMemory,
+      specificationsRepositoryInMemory
     );
   });
 
@@ -25,9 +29,14 @@ describe('Add car specification', () => {
       name: 'car1',
     });
 
+    const specification = await specificationsRepositoryInMemory.create({
+      description: 'test',
+      name: 'test',
+    });
+
     await createCarSpecificationUseCase.execute({
       car_id: car.id,
-      specification_id: 'def',
+      specifications_id: [specification.id],
     });
   });
 
@@ -35,7 +44,7 @@ describe('Add car specification', () => {
     await expect(
       createCarSpecificationUseCase.execute({
         car_id: 'abc',
-        specification_id: 'def',
+        specifications_id: ['non-existing-car'],
       })
     ).rejects.toBeInstanceOf(AppError);
   });
