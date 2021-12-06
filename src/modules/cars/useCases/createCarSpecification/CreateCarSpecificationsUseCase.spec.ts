@@ -2,9 +2,9 @@ import { CarsRepositoryInMemory } from '@modules/cars/repositories/in-memory/Car
 import { SpecificationsRepositoryInMemory } from '@modules/cars/repositories/in-memory/SpecificationsRepositoryInMemory';
 import { AppError } from '@shared/errors/AppError';
 
-import { CreateCarSpecificationUseCase } from './CreateCarSpecificationUseCase';
+import { CreateCarSpecificationsUseCase } from './CreateCarSpecificationsUseCase';
 
-let createCarSpecificationUseCase: CreateCarSpecificationUseCase;
+let createCarSpecificationsUseCase: CreateCarSpecificationsUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;
 let specificationsRepositoryInMemory: SpecificationsRepositoryInMemory;
 
@@ -12,7 +12,7 @@ describe('Add car specification', () => {
   beforeEach(() => {
     carsRepositoryInMemory = new CarsRepositoryInMemory();
     specificationsRepositoryInMemory = new SpecificationsRepositoryInMemory();
-    createCarSpecificationUseCase = new CreateCarSpecificationUseCase(
+    createCarSpecificationsUseCase = new CreateCarSpecificationsUseCase(
       carsRepositoryInMemory,
       specificationsRepositoryInMemory
     );
@@ -34,7 +34,7 @@ describe('Add car specification', () => {
       name: 'test',
     });
 
-    await createCarSpecificationUseCase.execute({
+    await createCarSpecificationsUseCase.execute({
       car_id: car.id,
       specifications_id: [specification.id],
     });
@@ -42,7 +42,7 @@ describe('Add car specification', () => {
 
   it('Should not be able to add a new specification to non-existing car', async () => {
     await expect(
-      createCarSpecificationUseCase.execute({
+      createCarSpecificationsUseCase.execute({
         car_id: 'abc',
         specifications_id: ['non-existing-car'],
       })
