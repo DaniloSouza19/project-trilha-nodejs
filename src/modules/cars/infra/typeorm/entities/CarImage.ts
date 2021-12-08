@@ -1,5 +1,7 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
+
+import { Car } from './Car';
 
 @Entity('cars_image')
 class CarImage {
@@ -14,6 +16,12 @@ class CarImage {
 
   @Column()
   created_at: Date;
+
+  @ManyToOne(() => Car, (car) => car.images)
+  @JoinColumn({
+    name: 'car_id',
+  })
+  car: Car;
 
   constructor() {
     if (!this.id) {
