@@ -41,6 +41,8 @@
 **RN**
 - [x] O usuário deve poder cadastrar mais de uma imagem para o mesmo carro.
 - [x] Para cadastrar imagens, o usuário deve ser um administrador.
+- [x] Não deve ser possível cadastrar imagens para um carro não cadastrado.
+- [x] Deve remover as imagens antigas ao cadastrar as novas imagens
 
 ## Aluguel de carro
 
