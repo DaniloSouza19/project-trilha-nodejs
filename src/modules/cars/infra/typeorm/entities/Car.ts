@@ -57,9 +57,6 @@ class Car {
   specifications: Specification[];
 
   @OneToMany(() => CarImage, (carImage) => carImage.car)
-  @JoinColumn({
-    name: 'id',
-  })
   images: CarImage[];
 
   @CreateDateColumn()
