@@ -3,6 +3,7 @@ import { CarImage } from '../infra/typeorm/entities/CarImage';
 
 interface ICarsImagesRepository {
   create(data: ICreateCarImageDTO): Promise<CarImage>;
+  delete(id: string): Promise<void>;
 }
 
 export { ICarsImagesRepository };
