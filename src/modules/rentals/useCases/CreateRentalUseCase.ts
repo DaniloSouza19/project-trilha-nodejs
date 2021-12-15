@@ -1,3 +1,4 @@
+import { IDateProvider } from '@shared/container/providers/dateProvider/IDateProvider';
 import { AppError } from '@shared/errors/AppError';
 
 import { Rental } from '../infra/typeorm/entities/Rental';
@@ -10,7 +11,12 @@ interface IRequest {
 }
 
 class CreateRentalUseCase {
-  constructor(private rentalsRepository: IRentalsRepository) {}
+  private MINIMUM_RENT_TIME_IN_HOURS = 24;
+
+  constructor(
+    private rentalsRepository: IRentalsRepository,
+    private dateProvider: IDateProvider
+  ) {}
 
   async execute({
     car_id,
@@ -30,6 +36,17 @@ class CreateRentalUseCase {
 
     if (openCarRental.length > 0) {
       throw new AppError('Exists open rentals from this car');
+    }
+
+    const differenceRentTime = this.dateProvider.differenceInHours(
+      expected_return_date,
+      new Date()
+    );
+
+    if (differenceRentTime < this.MINIMUM_RENT_TIME_IN_HOURS) {
+      throw new AppError(
+        `Expected return Date must be at least ${this.MINIMUM_RENT_TIME_IN_HOURS} hours`
+      );
     }
 
     const rental = await this.rentalsRepository.create({
