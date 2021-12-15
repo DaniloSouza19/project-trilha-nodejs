@@ -47,9 +47,9 @@
 ## Aluguel de carro
 
 **RF**
-- [] Deve ser possível realizar um aluguel de carro.
+- [x] Deve ser possível realizar um aluguel de carro.
 
 **RN**
 - [] O aluguel deve ter duração mínima de 24 horas.
-- [] Não deve ser possível realizar um aluguel caso o usuário esteja com aluguel em aberto.
-- [] Não deve ser possível realizar um aluguel caso já exista um aluguel em aberto para o carro.
+- [x] Não deve ser possível realizar um aluguel caso o usuário esteja com aluguel em aberto.
+- [x] Não deve ser possível realizar um aluguel caso já exista um aluguel em aberto para o carro.
