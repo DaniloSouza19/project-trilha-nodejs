@@ -56,10 +56,7 @@
             "alphabetize": { "order": "asc", "ignoreCase": true }
         }
         ],
-        "import/no-extraneous-dependencies": ["error", {
-          "devDependencies": ["**/*.spec.ts"], 
-          "jest": ["**/ts-jest/**"]}
-        ],
+        "import/no-extraneous-dependencies": "off",
         "prettier/prettier": "error"
     },
     "settings": {
