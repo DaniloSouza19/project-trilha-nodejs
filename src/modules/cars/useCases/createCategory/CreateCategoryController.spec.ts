@@ -55,16 +55,6 @@ describe('Create category', () => {
 
     const { token } = responseToken.body;
 
-    await request(app)
-      .post('/categories')
-      .send({
-        name: 'Some Category',
-        description: 'Some description',
-      })
-      .set({
-        Authorization: `Bearer ${token}`,
-      });
-
     const response = await request(app)
       .post('/categories')
       .send({
