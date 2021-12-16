@@ -35,4 +35,4 @@ app.use(
   }
 );
 
-export { app }
+export { app };
