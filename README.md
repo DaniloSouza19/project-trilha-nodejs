@@ -48,6 +48,7 @@
 
 **RF**
 - [x] Deve ser possível realizar um aluguel de carro.
+- [x] Após realizar o aluguel, o status do carro deve ser alterado para indisponível
 
 **RN**
 - [x] O aluguel deve ter duração mínima de 24 horas.
